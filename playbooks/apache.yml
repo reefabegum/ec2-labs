@@ -1,0 +1,21 @@
+---
+- name: Install apache
+  hosts: web
+  become: true
+  tasks:
+    - name: install apache
+      apt:
+        name: apache2
+        state: present
+      when: inventory_hostname in groups['web']
+
+    - name: Copy my index page
+      copy:
+        src: "index.html"
+        dest: "/var/www/html/index.html"
+
+    - name: Restarted apache2 server
+      service:
+        name: apache2
+        state: restarted
+    
