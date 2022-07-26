@@ -8,7 +8,8 @@ resource "aws_security_group" "ansible_server" {
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
-    cidr_blocks      = ["103.91.88.205/32"]
+    cidr_blocks      = ["157.45.242.138/32"]
+    #ipv6_cidr_blocks = ["2409:4071:d07:fcdc:94b6:d54:411:1b1/64"]
     
   }
 ingress {
@@ -16,7 +17,17 @@ ingress {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["103.91.88.205/32"]
+    cidr_blocks      = ["157.45.242.138/32"]
+    #ipv6_cidr_blocks = ["2409:4071:d07:fcdc:94b6:d54:411:1b1/64"]
+    
+  }
+  ingress {
+    description      = "Allow port 3306"
+    from_port        = 3306
+    to_port          = 3306
+    protocol         = "tcp"
+    cidr_blocks      = ["157.45.242.138/32"]
+    #ipv6_cidr_blocks = ["2409:4071:d07:fcdc:94b6:d54:411:1b1/64"]
     
   }
   egress {

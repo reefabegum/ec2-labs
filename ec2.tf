@@ -15,3 +15,8 @@ resource "aws_instance" "ansible_server" {
     instance = aws_instance.ansible_server.id 
     vpc      = true
   }
+
+
+
+
+  
